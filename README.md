@@ -1,24 +1,20 @@
 # Ordem de implementação
 As classes a serem implementadas ficam na seguinte ordem:
 
-Parte1:
+## Parte1: <br/>
 
--Modalidade*
+-Modalidade* <br/>
+-Endereco* <br/>
+-<strike>Mensalidade</strike> Feito<br/>
+-<strike>Utilitario</strike> Feito<br/>
 
--Endereco*
+## Parte2:<br/>
 
--Mensalidade Feito
+-Titulo*<br/>
+-Matricula*<br/>
 
--Utilitario Feito
+Parte3:<br/>
 
-Parte2:
-
--Titulo*
-
--Matricula*
-
-Parte3:
-
--Socio*
+-Socio*<br/>
 
 obs: Todas as classes que possue " * " precisam ser testadas antes de processeguir para a próxima parte.
