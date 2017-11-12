@@ -13,7 +13,7 @@ As classes a serem implementadas ficam na seguinte ordem:
 -Titulo*<br/>
 -Matricula*<br/>
 
-Parte3:<br/>
+## Parte3:<br/>
 
 -Socio*<br/>
 
