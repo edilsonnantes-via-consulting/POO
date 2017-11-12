@@ -5,7 +5,7 @@ As classes a serem implementadas ficam na seguinte ordem:
 
 -Modalidade* <br/>
 -Endereco* <br/>
--<strike>Mensalidade</strike> Feito<br/>
+-<strike>Mensalidade*</strike> Feito<br/>
 -<strike>Utilitario</strike> Feito<br/>
 
 ## Parte2:<br/>
