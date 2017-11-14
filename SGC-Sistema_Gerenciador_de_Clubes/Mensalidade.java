@@ -29,7 +29,7 @@ public class Mensalidade{
 
     //Métodos sets
 
-    /*mensalidadeId não possue set, pois é definido conforme o cadastramento */
+    /*mensalidadeId não possui set, pois é definido conforme o cadastramento */
     
     public void setDataEmissao(Calendar dataEmissao){
         this.dataEmissao = dataEmissao;
