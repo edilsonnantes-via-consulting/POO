@@ -6,14 +6,11 @@ public class Mensalidade{
     private float valor;
     private Calendar dataPagamento;
 
-    teste
-
     //Método construtor
-    public Mensalidade(Calendar dataEmissao, float valor, Calendar dataPagamento){
+    public Mensalidade(Calendar dataEmissao, float valor){
         this.mensalidadeId = Utilitario.MENSALIDADE_ID++;
-        this.dataEmissao= dataEmissao;
+        this.dataEmissao=dataEmissao;
         this.valor = valor;
-        this.dataPagamento = dataPagamento;
     }
 
     //Método toString
@@ -21,15 +18,16 @@ public class Mensalidade{
         String aux = "";
         aux += "ID: " + this.mensalidadeId;
         aux += "\nValor:" + this.valor;
-        aux += "\nEmissao:" + this.dataEmissao;
-        aux += "\nPagamento: " + this.dataPagamento;
+        aux += "\nEmissao:" + this.dataEmissao.get(Calendar.DAY_OF_MONTH);
+        aux += "/" + (this.dataEmissao.get(Calendar.MONTH)+1);
+        aux += "/" + this.dataEmissao.get(Calendar.YEAR);
 
         return aux;
     }
 
     //Métodos sets
 
-    /*mensalidadeId não possue set, pois é definido conforme o cadastramento */
+    /*mensalidadeId não possui set, pois é definido conforme o cadastramento */
     
     public void setDataEmissao(Calendar dataEmissao){
         this.dataEmissao = dataEmissao;
@@ -39,9 +37,9 @@ public class Mensalidade{
         this.valor = valor;
     }
 
-    public void setDataPagamento(Calendar dataPagamento){
-        this.dataPagamento = dataPagamento;
-    }
+	public void setDataPagamento(Calendar datapagamento){
+		this.dataPagamento=datapagamento;
+	}
 
     //Métodos gets
     public int getMensalidadeId(){
