@@ -30,15 +30,14 @@ public class Leitura{
 	}
 
 	public static float lerFloat(String label){
-		float valor=0;
 		try{
-			valor = Float.parseFloat(lerString(label));
+			return Float.parseFloat(lerString(label));
 		}catch(Exception erro){
 			System.out.println("Valor digitado invalido, tente novamente");
-			lerFloat();
+			lerFloat("");
 		}
 
-		return valor;
+		return 0;
 	}
 
 	public static double lerDouble(String label){
@@ -47,7 +46,7 @@ public class Leitura{
 
 	public static Calendar lerData(String label){
 		String dataString = lerString(label);
-		Calendar d = Calendar.getInstance();
+		Calendar d;
 		try{
 			d.set(Calendar.DAY_OF_MONTH,Integer.parseInt(dataString.substring(0,2)));
 			d.set(Calendar.MONTH,Integer.parseInt(dataString.substring(3,5))-1); /*Os meses na classe Calendar são numerados de 
@@ -74,9 +73,6 @@ public class Leitura{
 		return lerFloat("");
 	}
 
-	public static double lerDouble(){
-		return lerDouble("");
-	}
 
 	public static Calendar lerData(){
 		return lerData("");

@@ -7,9 +7,9 @@ public class Mensalidade{
     private Calendar dataPagamento;
 
     //Método construtor
-    public Mensalidade(Calendar dataEmissao, float valor){
+    public Mensalidade(float valor){
         this.mensalidadeId = Utilitario.MENSALIDADE_ID++;
-        this.dataEmissao=dataEmissao;
+        this.dataEmissao=Calendar.getInstance();
         this.valor = valor;
     }
 
@@ -29,16 +29,16 @@ public class Mensalidade{
 
     /*mensalidadeId não possui set, pois é definido conforme o cadastramento */
     
-    public void setDataEmissao(Calendar dataEmissao){
-        this.dataEmissao = dataEmissao;
+    public void setDataEmissao(){
+        this.dataEmissao = Calendar.getInstance();
     }
 
     public void setValor(float valor){
         this.valor = valor;
     }
 
-	public void setDataPagamento(Calendar datapagamento){
-		this.dataPagamento=datapagamento;
+	public void setDataPagamento(){
+		this.dataPagamento=Calendar.getInstance();
 	}
 
     //Métodos gets

@@ -6,7 +6,7 @@ public class Socio{
 	private String nome;
 	private Endereco endereco;
 	private Calendar dataNasc;
-	private Matriculas matriculas[];
+	private Matriculas[] matriculas;
 	
 	//Método construtor
 	public Socio(String nome, String cpf, Calendar dataNasc, Endereco endereco){
@@ -32,6 +32,7 @@ public class Socio{
 		nome=Leitura.lerString("Digite nome: ");
 		cpf=Leitura.lerString("Digite CPF: ");
 		dataNasc=Leitura.lerData("Digite data: ");
+		endereco = Endereco.criar();
 
 	}
 	
@@ -57,7 +58,6 @@ public class Socio{
 	
 	
 	//gets
-	
 	public int getSocioId(){
 		return this.socioId;
 	}
@@ -74,4 +74,8 @@ public class Socio{
 		return this.dataNasc;
 	}
 
+//metodo de matricula
+	/*public boolean matricular(int modalidadeId, Modalidades[] modalidade){
+		
+	}*/
 }
