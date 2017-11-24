@@ -67,7 +67,7 @@ public class Endereco{
 	//Pesquisar
 	public Endereco pesquisar(int id, Endereco enderecos[]){
 	    for (int i = 0; i <= enderecos.length; i++){
-		    if(id == Endereco.getId()){
+		    if(id == enderecos[i].getId()){
 			return enderecos[i];
 		    }
 		    else{
