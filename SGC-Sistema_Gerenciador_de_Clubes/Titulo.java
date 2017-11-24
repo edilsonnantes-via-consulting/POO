@@ -26,7 +26,7 @@ public class Titulo {
     	return this.mensalidades;
     }
     
-    public Titulo criar(Endereco enderecos[]){
+    public static Titulo criar(Endereco enderecos[]){
     	this.tituloid = Utilitario.TITULO_ID++;
     	int tipo;
     	System.out.printf("1- Indivual\n2- Familiar");
