@@ -7,14 +7,28 @@ public class Endereco{
 	private String estado;
 
 	//construtor
-	public Endereco(){
-
+	public Endereco(String rua, int numero, String cep, String cidade, String estado){
+	    this.endereçoId = Utilitario.ENDERECO_ID++;
+	    this.rua  = rua;
+	    this. numero = numero;
+	    this.cep = cep;
+	    this.cidade = cidade;
+	    this.estado = estado;
 	}
 
 
 	public Endereco criar(){
-		this.enderecoId = Utilitario.ENDERECO_ID++;
-		System.out.printf("Rua: ");
+		String rua;
+        int numero;
+        String cep;
+        String cidade;
+        String estado;
+        rua = Leitura.lerString("Rua: ");
+        numero = Leitura.lerInt("Numero: ");
+        cep = Leitura.lerString("CEP: ");
+        cidade = Leitura.lerString("Cidade: ");
+        estado = Leitura.lerString("Estado: ");
+
 
 	}
 
