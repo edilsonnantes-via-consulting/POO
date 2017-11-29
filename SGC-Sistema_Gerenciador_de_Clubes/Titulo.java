@@ -34,7 +34,7 @@ public class Titulo {
 		return mensalidades;
 	}
 
-    public Titulo criar(Endereco enderecos[]){
+    public static Titulo criar(Endereco enderecos[]){
     	this.tituloid = Utilitario.TITULO_ID++;
     	int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familia");
     	String r = Leitura.lerString("Ja possui cadastro?");

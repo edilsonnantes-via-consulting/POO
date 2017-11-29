@@ -8,7 +8,7 @@ public class Familiar extends Titulo{
 
     }
 
-    public Familiar criar(){
+    public static Familiar criar(){
         int i = Leitura.lerInt("Numero de dependentes: ");
         Socio dependentes[];
         for(int x = 0; x < i; x++){
