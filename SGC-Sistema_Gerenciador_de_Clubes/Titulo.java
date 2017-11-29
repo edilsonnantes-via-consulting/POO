@@ -14,6 +14,14 @@ public class Titulo {
     private Mensalidade mensalidades[];
 
 
+
+    public Titulo(Socio titular, Mensalidade mensalidades[]){
+        this.tituloid = Utilitario.TITULO_ID++;
+        this.titular = titular;
+        this.mensalidades[] = mensalidades[];
+    }
+
+
     public void getTituloid(){
     	return this.tituloid;
     }
@@ -26,7 +34,7 @@ public class Titulo {
     	return this.mensalidades;
     }
 
-    public static void criar(Endereco enderecos[]){
+    public Titulo criar(Endereco enderecos[]){
     	this.tituloid = Utilitario.TITULO_ID++;
     	int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familia");
     	String r = Leitura.lerString("Ja possui cadastro?");

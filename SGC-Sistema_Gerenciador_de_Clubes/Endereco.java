@@ -17,7 +17,7 @@ public class Endereco{
 	}
 
 
-	public static void criar(){
+	public Endereco criar(){
 		String rua;
         int numero;
         String cep;
@@ -28,6 +28,8 @@ public class Endereco{
         cep = Leitura.lerString("CEP: ");
         cidade = Leitura.lerString("Cidade: ");
         estado = Leitura.lerString("Estado: ");
+        Endereco ednderecos = new Endereco(rua,numero,cep,cidade,estado);
+        return enderecos;
 
 
 	}

@@ -2,11 +2,12 @@ public class Familiar extends Titulo{
     private Socio dependentes[];
 
 
-    public Familiar(){
+    public Familiar(Socio dependentes[]){
+        this.dependentes[] = dependentes[];
 
     }
 
-    public static void criar(){
+    public Familiar criar(){
         int i = Leitura.lerInt("Numero de dependentes: ");
         Socio dependentes[];
         for(int x = 0; x < i; x++){
@@ -19,6 +20,7 @@ public class Familiar extends Titulo{
                 dependentes[x] = Socio.criar();
             }
         }
+        Familiar familiares = new Familiar(dependentes[]);
     }
 
 
