@@ -81,4 +81,19 @@ public class Socio{
 	/*public boolean matricular(int modalidadeId, Modalidades[] modalidade){
 		
 	}*/
+	public static Socio pesquisar(int id, Socio socs[]){
+	    int i;
+		for (i = Utilitario.SOCIO_ID; i <= socs.length; i++){
+		    if(id == socs[i].getSocioId()){
+				break;
+		    }
+	    }
+		if(id == socs[i].getSocioId()){
+			return socs[i];
+		}
+		else{
+			return null;
+		}
+
+	}
 }
