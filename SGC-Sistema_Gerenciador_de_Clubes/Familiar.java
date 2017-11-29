@@ -8,14 +8,15 @@ public class Familiar extends Titulo{
 
     public static void criar(){
         int i = Leitura.lerInt("Numero de dependentes: ");
+        Socio dependentes[];
         for(int x = 0; x < i; x++){
             String r = Leitura.lerString("O dependente ja possui cadastro?");
             if(r == 'sim'){
                 int i = Leitura.lerInt("Digite seu id: ");
-                Socio titular = Socio.pesquisar(i, socios);
+                dependentes[x] = Socio.pesquisar(i, socios);
             }
             else{
-                tituluar = Socio.criar();
+                dependentes[x] = Socio.criar();
             }
         }
     }

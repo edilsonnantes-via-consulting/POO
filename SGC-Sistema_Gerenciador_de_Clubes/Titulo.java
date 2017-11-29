@@ -30,9 +30,10 @@ public class Titulo {
     	this.tituloid = Utilitario.TITULO_ID++;
     	int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familia");
     	String r = Leitura.lerString("Ja possui cadastro?");
+    	Socio titular;
     	if(r == 'sim'){
             int i = Leitura.lerInt("Digite seu id: ");
-            Socio titular = Socio.pesquisar(i, socios);
+            titular = Socio.pesquisar(i, socios);
     	}
     	else{
             tituluar = Socio.criar();
