@@ -17,7 +17,7 @@ public class Endereco{
 	}
 
 
-	public Endereco criar(){
+	public static Endereco criar(){
 		String rua;
         int numero;
         String cep;
@@ -81,9 +81,9 @@ public class Endereco{
 
 
 	//Pesquisar
-	public Endereco pesquisar(int id, Endereco enderecos[]){
+	public static Endereco pesquisar(int id, Endereco enderecos[]){
 	    int i;
-		for (i = 0; i <= enderecos.length; i++){
+		for (i = Utilitario.ENDERECO_ID; i <= enderecos.length; i++){
 		    if(id == enderecos[i].getId()){
 				break;
 		    }

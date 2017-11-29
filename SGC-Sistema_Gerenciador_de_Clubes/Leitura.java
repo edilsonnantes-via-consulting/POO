@@ -46,7 +46,7 @@ public class Leitura{
 
 	public static Calendar lerData(String label){
 		String dataString = lerString(label);
-		Calendar d;
+		Calendar d = Calendar.getInstance();
 		try{
 			d.set(Calendar.DAY_OF_MONTH,Integer.parseInt(dataString.substring(0,2)));
 			d.set(Calendar.MONTH,Integer.parseInt(dataString.substring(3,5))-1); /*Os meses na classe Calendar são numerados de 

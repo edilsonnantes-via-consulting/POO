@@ -6,7 +6,7 @@ public class Socio{
 	private String nome;
 	private Endereco endereco;
 	private Calendar dataNasc;
-	private Matriculas matriculas[];
+	private Matricula matriculas[];
 	
 	//Método construtor
 	public Socio(String nome, String cpf, Calendar dataNasc, Endereco endereco){
@@ -21,9 +21,10 @@ public class Socio{
 	public String toString(){
 		String aux ="";
 		aux += "Nome: " + this.nome;
+		return aux;
 	}
 
-	public Socio criar(){
+	public static Socio criar(){
 		String nome;
 		String cpf;
 		Calendar dataNasc;
