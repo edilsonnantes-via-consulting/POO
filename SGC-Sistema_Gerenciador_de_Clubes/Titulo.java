@@ -37,8 +37,8 @@ public class Titulo {
     	else{
             tituluar = Socio.criar();
     	}
-    	if(tipo == 1){
-
+    	if(tipo == 2){
+                Familiar.criar();
     	}
 
 
