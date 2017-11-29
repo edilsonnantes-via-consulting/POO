@@ -18,33 +18,33 @@ public class Titulo {
     public Titulo(Socio titular, Mensalidade mensalidades[]){
         this.tituloid = Utilitario.TITULO_ID++;
         this.titular = titular;
-        this.mensalidades[] = mensalidades[];
+        this.mensalidades = mensalidades;
     }
 
 
-    public void getTituloid(){
+    public int getTituloid(){
     	return this.tituloid;
     }
 
-    public void getTitular(){
+    public Socio getTitular(){
     	return this.titular;
     }
 
-    public void getMensalidades(){
-    	return this.mensalidades;
-    }
+    public Mensalidade[] getMensal(){
+		return mensalidades;
+	}
 
     public Titulo criar(Endereco enderecos[]){
     	this.tituloid = Utilitario.TITULO_ID++;
     	int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familia");
     	String r = Leitura.lerString("Ja possui cadastro?");
     	Socio titular;
-    	if(r == 'sim'){
+    	if(r == "sim"){
             int i = Leitura.lerInt("Digite seu id: ");
             titular = Socio.pesquisar(i, socios);
     	}
     	else{
-            tituluar = Socio.criar();
+            titular = Socio.criar();
     	}
     	if(tipo == 2){
                 Familiar.criar();
@@ -56,11 +56,14 @@ public class Titulo {
     public Titulo pesquisar(int id, Titulo titulos[]){
     	for(int i = 0; i <= titulos.lentgh; i++){
     		if(id == titulos[i].getTituloid()){
+    			break;
+    		}
+    	}
+		if(id == titulos[i].getTituloid()){
     			return titulos[i];
     		}
     		else{
-    			return NULL;
+    			return null;
     		}
-    	}
     }
 }

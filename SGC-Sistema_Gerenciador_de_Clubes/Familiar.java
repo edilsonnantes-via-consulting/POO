@@ -3,7 +3,8 @@ public class Familiar extends Titulo{
 
 
     public Familiar(Socio dependentes[]){
-        this.dependentes[] = dependentes[];
+        
+		this.dependentes = dependentes;
 
     }
 
@@ -12,15 +13,15 @@ public class Familiar extends Titulo{
         Socio dependentes[];
         for(int x = 0; x < i; x++){
             String r = Leitura.lerString("O dependente ja possui cadastro?");
-            if(r == 'sim'){
-                int i = Leitura.lerInt("Digite seu id: ");
+            if(r == "sim"){
+                int a = Leitura.lerInt("Digite seu id: ");
                 dependentes[x] = Socio.pesquisar(i, socios);
             }
             else{
                 dependentes[x] = Socio.criar();
             }
         }
-        Familiar familiares = new Familiar(dependentes[]);
+        Familiar familiares = new Familiar(dependentes);
     }
 
 

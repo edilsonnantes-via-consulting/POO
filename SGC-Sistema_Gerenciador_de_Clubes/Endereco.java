@@ -8,7 +8,7 @@ public class Endereco{
 
 	//construtor
 	public Endereco(String rua, int numero, String cep, String cidade, String estado){
-	    this.endereçoId = Utilitario.ENDERECO_ID++;
+	    this.enderecoId = Utilitario.ENDERECO_ID++;
 	    this.rua  = rua;
 	    this. numero = numero;
 	    this.cep = cep;
@@ -28,7 +28,7 @@ public class Endereco{
         cep = Leitura.lerString("CEP: ");
         cidade = Leitura.lerString("Cidade: ");
         estado = Leitura.lerString("Estado: ");
-        Endereco ednderecos = new Endereco(rua,numero,cep,cidade,estado);
+        Endereco enderecos = new Endereco(rua,numero,cep,cidade,estado);
         return enderecos;
 
 
@@ -82,14 +82,18 @@ public class Endereco{
 
 	//Pesquisar
 	public Endereco pesquisar(int id, Endereco enderecos[]){
-	    for (int i = 0; i <= enderecos.length; i++){
+	    int i;
+		for (i = 0; i <= enderecos.length; i++){
 		    if(id == enderecos[i].getId()){
-			return enderecos[i];
-		    }
-		    else{
-			return NULL;
+				break;
 		    }
 	    }
+		if(id == enderecos[i].getId()){
+			return enderecos[i];
+		}
+		else{
+			return null;
+		}
 
 	}
 }
