@@ -17,7 +17,7 @@ public class Endereco{
 	}
 
 
-	public Endereco criar(){
+	public static void criar(){
 		String rua;
         int numero;
         String cep;
