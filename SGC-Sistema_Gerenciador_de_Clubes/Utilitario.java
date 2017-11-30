@@ -10,4 +10,10 @@ public class Utilitario{
 	public static int TITULO_ID = 1;
 	public static int MENSALIDADE_ID = 1;
 	public static int MATRICULA_ID = 1;
+
+	//Auxiliadores de tamanho de vetor
+	public static int TOTAL_SOCIOS = 1000;
+	public static int TOTAL_MODALIDADES = 50;
+	public static int TOTAL_ENDERECOS = 100;
+	public static int TOTAL_MENSALIDADE_ANO = 12;
 }
