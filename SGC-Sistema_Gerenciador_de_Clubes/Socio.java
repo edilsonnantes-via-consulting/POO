@@ -37,10 +37,10 @@ public class Socio{
 		System.out.println("\nDados de Socio: \n");
 		nome=Leitura.lerString("Digite nome: ");
 		cpf=Leitura.lerString("Digite CPF: ");
-		dataNasc=Leitura.lerData("Digite data: ");
-		int r = Leitura.lerInt("Já possui endereço cadastrado?(1 - Sim/2 - Nao): ");
+		dataNasc=Leitura.lerData("Digite data (dd/mm/aaaa): ");
+		int r = Leitura.lerInt("Ja possui endereco cadastrado?(1 - Sim/2 - Nao): ");
 		if(r == 1){
-			int id_pesquisa = Leitura.lerInt("Digite o ID do endereço: "); //ID que vai ser pesuisada se existe
+			int id_pesquisa = Leitura.lerInt("Digite o ID do endereco: "); //ID que vai ser pesuisada se existe
 			endereco = Endereco.pesquisar(id_pesquisa, ends);
 		}
 		else{
@@ -130,19 +130,20 @@ public class Socio{
 				mat.setDataFim();
 				return true;
 			}
+		}
 		return false;
 	}
 	
 	
-	public static Socio pesquisar(int id, Socio socs[]){
+	public static Socio pesquisar(int id, Socio soc[]){
 	    int i;
-		for (i = 0; i < socs.length; i++){
-		    if(id == socs[i].getSocioId()){
+		for (i = 0; i < soc.length; i++){
+		    if(id == soc[i].getSocioId()){
 				break;
 		    }
 	    }
-		if(id == socs[i].getSocioId()){
-			return socs[i];
+		if(id == soc[i].getSocioId()){
+			return soc[i];
 		}
 		else{
 			return null;
