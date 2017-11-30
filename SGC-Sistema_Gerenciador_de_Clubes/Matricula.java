@@ -6,15 +6,14 @@ public class Matricula{
 	private Calendar dataIni;
 	private Calendar dataFim;
 
-
-
+	//Método contrutor
 	public Matricula(Modalidade modalidade){
 		this.matriculaId = Utilitario.MATRICULA_ID++;
 		this.modalidade = modalidade;
 		this.dataIni = Calendar.getInstance();
 	}
 
-
+	//gets
 	public int getMatriculaId(){
         return matriculaId;
 	}
@@ -31,20 +30,22 @@ public class Matricula{
         return modalidade;
 	}
 
-
+	//sets
 	public void setDataFim(Calendar dataFim){
 		this.dataFim = dataFim;
 	}
-	
+
+
+	//Método que faz a pesuisa de matriculas pelo ID
 	public static Matricula pesquisar(int id, Matricula matriculas[]){
 	    int i;
 		for (i = 0; i < matriculas.length; i++){
-		    if(id == matriculas[i+1].getMatriculaId()){
+		    if(id == matriculas[i].getMatriculaId()){
 				break;
 		    }
 	    }
-		if(id == matriculas[i+1].getMatriculaId()){
-			return matriculas[i+1];
+		if(id == matriculas[i].getMatriculaId()){
+			return matriculas[i];
 		}
 		else{
 			return null;
@@ -52,12 +53,12 @@ public class Matricula{
 
 	}
 	
-
+	//Método toString
 	public String toString(){
-        String aux = "";
-        aux += "\nID: " + this.matriculaId;
+        	String aux = "";
+        	aux += "\nID: " + this.matriculaId;
 		aux += "\nData de inicio: " + this.dataIni;
 		aux += "\nData de termino: " + this.dataFim;
-        return aux;
+        	return aux;
 	}
 }

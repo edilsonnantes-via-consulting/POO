@@ -16,7 +16,7 @@ public class Endereco{
 	    this.estado = estado;
 	}
 
-
+	//método para auxiliar na criação de endereco
 	public static Endereco criar(){
 		String rua;
         int numero;
@@ -30,8 +30,6 @@ public class Endereco{
         estado = Leitura.lerString("Estado: ");
         Endereco enderecos = new Endereco(rua,numero,cep,cidade,estado);
         return enderecos;
-
-
 	}
 
 
@@ -84,12 +82,12 @@ public class Endereco{
 	public static Endereco pesquisar(int id, Endereco enderecos[]){
 	    int i;
 		for (i = 0; i < enderecos.length; i++){
-		    if(id == enderecos[i+1].getId()){
+		    if(id == enderecos[i].getId()){
 				break;
 		    }
 	    }
-		if(id == enderecos[i+1].getId()){
-			return enderecos[i+1];
+		if(id == enderecos[i].getId()){
+			return enderecos[i];
 		}
 		else{
 			return null;

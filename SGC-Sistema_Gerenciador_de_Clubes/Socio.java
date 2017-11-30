@@ -7,7 +7,8 @@ public class Socio{
 	private Endereco endereco;
 	private Calendar dataNasc;
 	private Matricula[] matriculas;
-	
+	private int qtd_matriculas; //Controlador de quantidde de matriculas efetuadas
+
 	//Método construtor
 	public Socio(String nome, String cpf, Calendar dataNasc, Endereco endereco){
 		this.socioId=Utilitario.SOCIO_ID++;
@@ -15,6 +16,9 @@ public class Socio{
 		this.cpf=cpf;
 		this.endereco=endereco;
 		this.dataNasc=dataNasc;
+		this.matriculas = new Matricula[Utilitario.TOTAL_MATRICULAS];
+		this.qtd_matriculas= 0;
+		
 	}
 	
 	//Método toString
@@ -24,6 +28,7 @@ public class Socio{
 		return aux;
 	}
 
+	//Método para auxiliar a criar socio
 	public static Socio criar(Endereco ends[]){
 		String nome;
 		String cpf;
@@ -35,8 +40,8 @@ public class Socio{
 		dataNasc=Leitura.lerData("Digite data: ");
 		int r = Leitura.lerInt("Já possui endereço cadastrado?(1 - Sim/2 - Nao): ");
 		if(r == 1){
-			int x = Leitura.lerInt("Digite o ID do endereço: ");
-			endereco = Endereco.pesquisar(x, ends);
+			int id_pesquisa = Leitura.lerInt("Digite o ID do endereço: "); //ID que vai ser pesuisada se existe
+			endereco = Endereco.pesquisar(id_pesquisa, ends);
 		}
 		else{
 			endereco = Endereco.criar();
@@ -77,6 +82,10 @@ public class Socio{
 		return this.nome;
 	}
 
+	public String getCPF(){
+		return this.cpf;
+	}
+
 	public Endereco getEndereco(){
 		return this.endereco;
 	}
@@ -89,12 +98,23 @@ public class Socio{
 		return matriculas;
 	}
 
-//metodo de matricula
+	//metodo de matricula
 	public boolean matricular(int modalidadeId, Modalidade[] modalidade){
-		Modalidade mod = Modalidade.pesquisar(modalidadeId, modalidade);
-		Matricula[] matricula = new Matricula[Utilitario.MATRICULA_ID + 1];
-		this.matriculas[Utilitario.MATRICULA_ID] = matricula[Utilitario.MATRICULA_ID]; 
-		return true;
+		Modalidade mod; //Auxiliar na pesquisa da modalidade
+		boolean deuCerto=false; //Vai retornar se foi feito a matricula
+		
+		if(this.qtd_matriculas == Utilitario.TOTAL_MATRICULAS){
+			System.out.println("Nnumero limite de matriculas alcançado!!");
+		}else{
+			mod = Modalidade.pesquisar(modalidadeId, modalidade);
+			if(mod==null){
+				System.out.println("Modalidade nao cadastrada!!"); 
+			}else{
+				this.matriculas[this.qtd_matriculas++] = new Matricula(mod);
+				deuCerto=true;
+			}
+		}
+		return deuCerto;
 	}
 	
 	public boolean desmatricular(int matriculaId){
