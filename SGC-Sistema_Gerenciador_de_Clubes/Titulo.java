@@ -53,7 +53,7 @@ public class Titulo {
 
     }
 
-    public Titulo pesquisar(int id, Titulo titulos[]){
+    public static Titulo pesquisar(int id, Titulo titulos[]){
     	for(int i = 0; i <= titulos.lentgh; i++){
     		if(id == titulos[i].getTituloid()){
     			break;
