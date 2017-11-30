@@ -4,17 +4,15 @@ public class Teste{
     public static void main(String[] args){
          System.out.println("Teste:");
          Mensalidade m = new Mensalidade(Leitura.lerFloat("Digite valor: "));
-         Socio soc = Socio.criar();
-         
-		 System.out.println(m);
-		 System.out.printf(soc.toString());
-		 System.out.println(soc.getSocioId());
-		 int i;
-		 i = Leitura.lerInt("Digite umn ID: ");
-		 int x = 100;
-		 Endereco[] ends = new Endereco[x];
-		 ends[Utilitario.ENDERECO_ID] = soc.getEndereco();
-		 Endereco ed = Endereco.pesquisar(i, ends);
-		 System.out.println(ed);
+         Endereco[] ends = new Endereco[Utilitario.ENDERECO_ID+1];
+		 Modalidade[] mod = new Modalidade[Utilitario.MODALIDADE_ID+1];
+		 ends[Utilitario.ENDERECO_ID] = Endereco.criar();
+		 Socio soc = Socio.criar(ends);
+		 mod[Utilitario.MODALIDADE_ID] = Modalidade.criar();
+		 boolean a = soc.matricular(1, mod);
+		 if(a){
+			 System.out.println(soc.getMatriculas().toString());
+		 }
+		 
     }
 }

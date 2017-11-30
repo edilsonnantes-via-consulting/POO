@@ -83,13 +83,13 @@ public class Endereco{
 	//Pesquisar
 	public static Endereco pesquisar(int id, Endereco enderecos[]){
 	    int i;
-		for (i = Utilitario.ENDERECO_ID; i <= enderecos.length; i++){
-		    if(id == enderecos[i].getId()){
+		for (i = 0; i < enderecos.length; i++){
+		    if(id == enderecos[i+1].getId()){
 				break;
 		    }
 	    }
-		if(id == enderecos[i].getId()){
-			return enderecos[i];
+		if(id == enderecos[i+1].getId()){
+			return enderecos[i+1];
 		}
 		else{
 			return null;
