@@ -39,12 +39,12 @@ public class Matricula{
 	public static Matricula pesquisar(int id, Matricula matriculas[]){
 	    int i;
 		for (i = 0; i < matriculas.length; i++){
-		    if(id == matriculas[i+1].getMatriculaId()){
+		    if(id == matriculas[i].getMatriculaId()){
 				break;
 		    }
 	    }
-		if(id == matriculas[i+1].getMatriculaId()){
-			return matriculas[i+1];
+		if(id == matriculas[i].getMatriculaId()){
+			return matriculas[i];
 		}
 		else{
 			return null;

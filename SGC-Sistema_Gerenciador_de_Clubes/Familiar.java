@@ -2,26 +2,20 @@ public class Familiar extends Titulo{
     private Socio dependentes[];
 
 
-    public Familiar(Socio dependentes[]){
-        
+    public Familiar(Socio titular, Mensalidade mensalidades[], Socio dependentes[]){
+        super(titular, mensalidades);
 		this.dependentes = dependentes;
 
     }
 
-    public static Familiar criar(){
+    public static Familiar criar(Socio titular, Endereco enderecos[], Mensalidade mensalidades[]){
         int i = Leitura.lerInt("Numero de dependentes: ");
-        Socio dependentes[];
-        for(int x = 0; x < i; x++){
-            String r = Leitura.lerString("O dependente ja possui cadastro?");
-            if(r == "sim"){
-                int a = Leitura.lerInt("Digite seu id: ");
-                dependentes[x] = Socio.pesquisar(i, socios);
-            }
-            else{
-                dependentes[x] = Socio.criar();
-            }
-        }
-        Familiar familiares = new Familiar(dependentes);
+        Socio dependentes[] = new Socio[i];
+		for (int x = 0; x < i; x++){
+			dependentes[x] = Socio.criar(enderecos);
+		}
+		return new Familiar(titular, mensalidades, dependentes);
+        
     }
 
 

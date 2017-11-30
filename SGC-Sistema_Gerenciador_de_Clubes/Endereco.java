@@ -23,7 +23,8 @@ public class Endereco{
         String cep;
         String cidade;
         String estado;
-        rua = Leitura.lerString("Rua: ");
+        System.out.println("\nDados de Endereco: \n");
+		rua = Leitura.lerString("Rua: ");
         numero = Leitura.lerInt("Numero: ");
         cep = Leitura.lerString("CEP: ");
         cidade = Leitura.lerString("Cidade: ");
@@ -84,12 +85,12 @@ public class Endereco{
 	public static Endereco pesquisar(int id, Endereco enderecos[]){
 	    int i;
 		for (i = 0; i < enderecos.length; i++){
-		    if(id == enderecos[i+1].getId()){
+		    if(id == enderecos[i].getId()){
 				break;
 		    }
 	    }
-		if(id == enderecos[i+1].getId()){
-			return enderecos[i+1];
+		if(id == enderecos[i].getId()){
+			return enderecos[i];
 		}
 		else{
 			return null;

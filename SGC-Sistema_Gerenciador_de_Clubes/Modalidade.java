@@ -41,12 +41,12 @@ public class Modalidade{
 	public static Modalidade pesquisar(int id, Modalidade modalidades[]){
 	    int i;
 		for (i = 0; i < modalidades.length; i++){
-		    if(id == modalidades[i+1].getId()){
+		    if(id == modalidades[i].getId()){
 				break;
 		    }
 	    }
-		if(id == modalidades[i+1].getId()){
-			return modalidades[i+1];
+		if(id == modalidades[i].getId()){
+			return modalidades[i];
 		}
 		else{
 			return null;
