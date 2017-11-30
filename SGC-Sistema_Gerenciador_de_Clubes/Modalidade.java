@@ -70,7 +70,11 @@ public class Modalidade{
 		    }
 	    }
 		if(id == modalidades[i].getId()){
+<<<<<<< HEAD
 			return modalidades[i+1];
+=======
+			return modalidades[i];
+>>>>>>> 4194a519ba7b13cc06c4900cd133cb38c7a146c6
 		}
 		else{
 			return null;

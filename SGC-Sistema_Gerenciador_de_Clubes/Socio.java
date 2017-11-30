@@ -34,7 +34,7 @@ public class Socio{
 		String cpf;
 		Calendar dataNasc;
 		Endereco endereco;
-
+		System.out.println("\nDados de Socio: \n");
 		nome=Leitura.lerString("Digite nome: ");
 		cpf=Leitura.lerString("Digite CPF: ");
 		dataNasc=Leitura.lerData("Digite data: ");
