@@ -31,8 +31,8 @@ public class Matricula{
 	}
 
 	//sets
-	public void setDataFim(Calendar dataFim){
-		this.dataFim = dataFim;
+	public void setDataFim(){
+		this.dataFim = Calendar.getInstance();
 	}
 
 

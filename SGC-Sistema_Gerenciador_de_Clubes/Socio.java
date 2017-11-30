@@ -104,7 +104,7 @@ public class Socio{
 		boolean deuCerto=false; //Vai retornar se foi feito a matricula
 		
 		if(this.qtd_matriculas == Utilitario.TOTAL_MATRICULAS){
-			System.out.println("Nnumero limite de matriculas alcançado!!");
+			System.out.println("Numero limite de matriculas alcançado!!");
 		}else{
 			mod = Modalidade.pesquisar(modalidadeId, modalidade);
 			if(mod==null){
@@ -118,22 +118,31 @@ public class Socio{
 	}
 	
 	public boolean desmatricular(int matriculaId){
-		Matricula mat = Matricula.pesquisar(matriculaId,matriculas);
-		Calendar dataFim = Calendar.getInstance();
-		mat.setDataFim(dataFim);
-		return true;
+		Matricula mat; //Onde vai ficar a matricula case seja encontrado
+
+		if(this.qtd_matriculas == 0){
+			System.out.println("Socio nao possui matricula!!");
+		}else{
+			mat = Matricula.pesquisar(matriculaId,this.matriculas);
+			if(mat==null){
+				System.out.println("Nao foi encontrado matricula");
+			}else{
+				mat.setDataFim();
+				return true;
+			}
+		return false;
 	}
 	
 	
 	public static Socio pesquisar(int id, Socio socs[]){
 	    int i;
 		for (i = 0; i < socs.length; i++){
-		    if(id == socs[i+1].getSocioId()){
+		    if(id == socs[i].getSocioId()){
 				break;
 		    }
 	    }
-		if(id == socs[i+1].getSocioId()){
-			return socs[i+1];
+		if(id == socs[i].getSocioId()){
+			return socs[i];
 		}
 		else{
 			return null;
