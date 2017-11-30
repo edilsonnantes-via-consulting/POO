@@ -53,11 +53,13 @@ public class Leitura{
 																			 	   0(Janeiro) até 11(dezembro)*/
 																				   
 			d.set(Calendar.YEAR,Integer.parseInt(dataString.substring(6,10)));
-		}catch(Exception erro){
+		}
+		catch(Exception erro){
 			System.out.println("Data invalida");
 			lerData("");
 		}
-		 return d;		
+		
+		return d;		
 	}
 
 	//funcoes polimorficas quando é solicitado uma funcao sem label

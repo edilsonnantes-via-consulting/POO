@@ -10,17 +10,17 @@ public class Menu
             System.out.printf("\t\t|\t<2> Novo Socio                    |\n");
             System.out.printf("\t\t|\t<3> Matricular Socio              |\n");
             System.out.printf("\t\t|\t<4> Desmatricular Socio           |\n");
-    //        System.out.printf("                                | <4> |\n");
+            System.out.printf("\t\t|\t<5> Pagar Mensalidade             |\n");
     //        System.out.printf("                                | <5> |\n");
-            System.out.printf("\t\t|\t<5> Sair                          |\n");
+            System.out.printf("\t\t|\t<6> Sair                          |\n");
             System.out.printf("\t\t|_________________________________________|\n\n");
 
             System.out.printf("Qual a opcao escolhida??\n");
 
             cases(Leitura.lerInt());
 
-//            for (int i = 0; i < 50; ++i)
-//                System.out.printf("\n");
+            for (int i = 0; i < 50; ++i)
+                System.out.printf("\n");
         }
     }
 
@@ -76,6 +76,27 @@ public class Menu
                 else
                     soc_pesquisa.desmatricular(Leitura.lerInt("Qual ID voce quer desmatricular?? \n"));
                 
+                break;
+
+            case 5:
+                if(Utilitario.TITULO_ID != 1)
+                {
+                    Titulo tit_pesquisa = Titulo.pesquisar(Leitura.lerInt("Qual ID do socio: "), usuario);
+                    if(tit_pesquisa == null)
+                        System.out.printf("ID invalida..\n");
+                    else
+                    {
+                        if(tit_pesquisa.pagarMensalidade(Leitura.lerInt("Digite o mes: ")))
+                            System.out.printf("Pagamento realizado com sucesso..");
+
+                        else
+                            System.out.printf("Erro no Pagamento..");
+                    }
+                }
+
+                else
+                    System.out.printf("Impossivel pagar..");
+
                 break;
 
             default:

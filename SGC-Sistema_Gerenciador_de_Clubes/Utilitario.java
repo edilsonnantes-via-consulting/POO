@@ -1,7 +1,7 @@
 public class Utilitario{
 	//Custos predefinidos para o uso
-	public float custoBasico = 100;
-	public float custoDependente = 40;
+	public static float custoBasico = 100;
+	public static float custoDependente = 40;
 	
 	//Estaticos para auxiliar o controle de IDs em todas as classes
 	public static int ENDERECO_ID = 1;

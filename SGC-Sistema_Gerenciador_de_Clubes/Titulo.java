@@ -60,5 +60,27 @@ import java.util.Calendar;
     		else{
     			return null;
     		}
-    }
+	}
+
+	public Mensalidade calcularMensalidade(Socio soci[]){
+		Socio s_pagar = Socio.pesquisar(Leitura.lerInt("Digite uma ID: "), soci);
+		Matricula mt[] = s_pagar.getMatriculas();
+		float soma = 0;
+		for (int a = 0; a < mt.length; a++){
+			Modalidade md = mt[a].getModalidade();
+			soma += md.getValor();
+		}
+		float valor = Utilitario.custoBasico + soma;
+		return new Mensalidade(valor);
+	}
+	
+	public boolean pagarMensalidade(int mes){
+    	if(mes>0 && mes<13){ 
+				this.mensalidades[mes].setDataPagamento();
+				return true;
+        }else{
+				System.out.printf("Data invalida");
+		}
+		return false;
+ 	}
 }
