@@ -15,6 +15,6 @@ public class Utilitario{
 	public static int TOTAL_SOCIOS = 1000;
 	public static int TOTAL_MODALIDADES = 50;
 	public static int TOTAL_ENDERECOS = 100;
-	public static int TOTAL_MATRICULAS = 10;
+	public static int TOTAL_MATRICULAS = 12;
 	public static int TOTAL_TITULOS = 1000;
 }

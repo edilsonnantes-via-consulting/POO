@@ -63,17 +63,18 @@ public class Modalidade{
 	
 	//Método para pesquisar uma modalidade a partir do ID
 	public static Modalidade pesquisar(int id, Modalidade modalidades[]){
-	    int i;
-		for (i = 0; i < modalidades.length; i++){
-		    if(id == modalidades[i].getId()){
-				break;
-		    }
-	    }
-		if(id == modalidades[i].getId()){
-			return modalidades[i];
+		int i;
+		try{
+			for (i = 0; i < modalidades.length; i++){
+				if(id == modalidades[i].getId()){
+					return modalidades[i];
+				}
+			}
+		}catch(NullPointerException erroNenhumElemento){
+			System.out.println("Nao ha nenhuma modalidade cadastrada");
+		}catch(Exception erro){
+			System.out.println("Ocorreu um erro inesperado!");
 		}
-		else{
 			return null;
-		}
 	}
 }

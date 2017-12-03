@@ -2,14 +2,15 @@ public class Menu
 {
     public static void main(String args[])
     {
+        Modalidade mod[] = new Modalidade[Utilitario.TOTAL_MODALIDADES];
+        Titulo usuario[] = new Titulo[Utilitario.TOTAL_TITULOS];
+        Socio soc[] = new Socio[Utilitario.TOTAL_SOCIOS];
+        Endereco end[] = new Endereco[Utilitario.TOTAL_ENDERECOS];
+        
         while(true)
         {
-            Modalidade mod[] = new Modalidade[Utilitario.TOTAL_MODALIDADES];
-            Titulo usuario[] = new Titulo[Utilitario.TOTAL_SOCIOS];
-            Socio soc[] = new Socio[Utilitario.TOTAL_TITULOS];
-            Endereco end[] = new Endereco[Utilitario.TOTAL_ENDERECOS];
             int opcao = 0; //Variavel que armazena a opção escolhida pelo usuário
-    
+            
             System.out.printf("\n\n\t\t _____________ Menu Principal ____________\n");
             System.out.printf("\t\t|\t                                  |\n");
             System.out.printf("\t\t|\t<1> Cadastrar Modalidade          |\n");
@@ -29,37 +30,20 @@ public class Menu
                     break;
     
                 case 2:
-                    cadastrarTitulo(usuario, end);
+                    cadastrarTitulo(soc,usuario, end);
                     break;
     
                 case 3:
-                    System.out.printf("Qual ID voce quer matricular??\n");
-                    int auxId = Leitura.lerInt();
-    
-                    System.out.printf("Qual a ID da modalidade??\n");
-                    int auxMod = Leitura.lerInt();
-    
-                    if(Socio.pesquisar(auxId, soc) == null || Modalidade.pesquisar(auxMod, mod) == null)
-                        soc[auxId].matricular(mod[auxMod].getId(), mod);
-    
-                    else
-                        System.out.printf("\nInvalido..\n");
-    
+                    matricular(soc,mod);
                     break;
     
                 case 4:
-                    Socio soc_pesquisa = Socio.pesquisar(Leitura.lerInt("Qual ID do socio: "), soc);
-                    if(soc_pesquisa == null)
-                        System.out.printf("ID invalida..\n");
-                    else
-                        soc_pesquisa.desmatricular(Leitura.lerInt("Qual ID voce quer desmatricular?? \n"));
-                    
-                    break;
+                    desmatricular(soc);
     
                 case 5:
                     if(Utilitario.TITULO_ID != 1)
                     {
-                        Titulo tit_pesquisa = Titulo.pesquisar(Leitura.lerInt("Qual ID do socio: "), usuario);
+                        Titulo tit_pesquisa = Titulo.pesquisarTitulo(Leitura.lerInt("Qual ID do socio: "), usuario);
                         if(tit_pesquisa == null)
                             System.out.printf("ID invalida..\n");
                         else
@@ -92,12 +76,42 @@ public class Menu
         }
     }
 
-    public static void cadastrarTitulo(Titulo usuario[], Endereco end[]){
+    public static void cadastrarTitulo(Socio soc[],Titulo usuario[], Endereco end[]){
         if(Utilitario.TITULO_ID < Utilitario.TOTAL_TITULOS){
             usuario[Utilitario.TITULO_ID - 1] = Titulo.criar(end);
+            soc[Utilitario.SOCIO_ID -2 ] = usuario[Utilitario.TITULO_ID-2].getTitular();
+            
             System.out.printf("Cadastro efetuado com sucesso!!");
         }else{
             System.out.printf("\nNumero maximo de socios cadastrados..\n");
         }
     }
+
+    public static void matricular(Socio soc[], Modalidade mod[]){
+        Socio soc_matricula = Socio.pesquisarSocio(Leitura.lerInt("Digite ID da matricula: "), soc);
+
+        if(soc_matricula!=null){
+
+            if(soc_matricula.matricular(Leitura.lerInt("Digite ID da modalidade: "), mod)){
+                System.out.println("Matricula efetuada com sucesso!!");
+            }
+        }
+    }
+
+    public static void desmatricular(Socio soc[]){
+        Socio soc_pesquisa = Socio.pesquisarSocio(Leitura.lerInt("Digite ID do socio: "), soc);
+        if(soc_pesquisa == null){
+            System.out.printf("ID de socio invalido..\n");
+        }else{
+            if(soc_pesquisa.desmatricular(Leitura.lerInt("Qual ID voce quer desmatricular?? \n"))){
+                System.out.println("Desmatricula efetuada");
+            }else{
+                System.out.println("ID de matricula invalido");
+            }
+        }
+            
+    }
+
+
+
 }

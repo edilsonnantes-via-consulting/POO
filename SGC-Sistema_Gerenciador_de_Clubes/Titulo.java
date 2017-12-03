@@ -32,22 +32,29 @@ import java.util.Calendar;
     	return this.titular;
     }
 
-    public Mensalidade[] getMensal(){
+    public Mensalidade[] getMensalidade(){
 		return mensalidades;
 	}
 
     public static Titulo criar(Endereco enderecos[]){
-    	int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familiar: ");
-    	int meses = Leitura.lerInt("Quantos meses deseja contratar? ");
-		Mensalidade[] mensalidades = new Mensalidade[meses];
+		int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familiar: ");
+
 		Socio titular = Socio.criar(enderecos);
-		if (tipo == 2){
-			return Familiar.criar(titular, enderecos, mensalidades);
+		Mensalidade[] mensalidades = new Mensalidade[12];
+		
+		switch(tipo){
+			case 1:
+				return Individual.criar(titular, mensalidades);
+			case 2:
+				return Familiar.criar(titular,enderecos,mensalidades);
+			default:
+				System.out.println("Opcao Invalida");
 		}
-		return new Titulo(titular,mensalidades);
+
+		return null;
     }
 
-    public static Titulo pesquisar(int id, Titulo titulos[]){
+    public static Titulo pesquisarTitulo(int id, Titulo titulos[]){
     	int i;
 		for(i = 0; i <= titulos.length; i++){
     		if(id == titulos[i+1].getTituloid()){
@@ -63,7 +70,7 @@ import java.util.Calendar;
 	}
 
 	public Mensalidade calcularMensalidade(Socio soci[]){
-		Socio s_pagar = Socio.pesquisar(Leitura.lerInt("Digite uma ID: "), soci);
+		Socio s_pagar = Socio.pesquisarSocio(Leitura.lerInt("Digite uma ID: "), soci);
 		Matricula mt[] = s_pagar.getMatriculas();
 		float soma = 0;
 		for (int a = 0; a < mt.length; a++){

@@ -74,7 +74,7 @@ public class Endereco{
 		return this.estado;
 	}
 
-	public int getId(){
+	public int getEnderecoId(){
         return this.enderecoId;
 	}
 
@@ -85,14 +85,17 @@ public class Endereco{
 		
 		try{
 			for (i = 0; i < enderecos.length; i++){
-				if(id == enderecos[i].getId()){
+				if(id == enderecos[i].getEnderecoId()){
 					return enderecos[i];
 				}
 			}
 		}catch(NullPointerException erroNenhumElemento){
 			System.out.println("Nao ha nenhum endereco cadastrado!!");
+		}catch(Exception erro){
+			System.out.println("Ocorreu um erro inesperado!!");
 		}
 
+		System.out.println("Endereco nao encontrado!!");
 		return null;
 	}
 }

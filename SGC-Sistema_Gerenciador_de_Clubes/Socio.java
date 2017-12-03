@@ -47,7 +47,6 @@ public class Socio{
 
 		//Se o enderco for Null, quer dizer que nao posui endereco cadastrado
 		if(endereco==null){
-			System.out.println("Endereco nao cadastrado!!");
 			ends[Utilitario.ENDERECO_ID-1] = Endereco.criar();
 			endereco = ends[Utilitario.ENDERECO_ID-1];
 		}
@@ -140,19 +139,21 @@ public class Socio{
 	}
 	
 	
-	public static Socio pesquisar(int id, Socio soc[]){
-	    int i;
-		for (i = 0; i < soc.length; i++){
-		    if(id == soc[i].getSocioId()){
-				break;
-		    }
-	    }
-		if(id == soc[i].getSocioId()){
-			return soc[i];
+	public static Socio pesquisarSocio(int id, Socio[] soc){
+		int i=0;
+		
+		try{
+			for(i = 0; i < soc.length; i++){
+				if(id == soc[i].getSocioId()){
+					return soc[i];
+				}
+			}
+		}catch(NullPointerException erroNenhumElemento){
+			System.out.println("Nao ha socio cadastrado");
+		}catch(Exception erro){
+			System.out.println("Ocorreu um erro inesperado");
 		}
-		else{
-			return null;
-		}
-
+		
+		return null;
 	}
 }
