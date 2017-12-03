@@ -23,7 +23,7 @@ public class Endereco{
         String cep;
         String cidade;
         String estado;
-        System.out.println("\nDados de Endereco: \n");
+        System.out.printf("\nDADOS DE ENDERECO \n");
 		rua = Leitura.lerString("Rua: ");
         numero = Leitura.lerInt("Numero: ");
         cep = Leitura.lerString("CEP: ");
@@ -81,18 +81,18 @@ public class Endereco{
 
 	//Pesquisar
 	public static Endereco pesquisar(int id, Endereco enderecos[]){
-	    int i;
-		for (i = 0; i < enderecos.length; i++){
-		    if(id == enderecos[i].getId()){
-				break;
-		    }
-	    }
-		if(id == enderecos[i].getId()){
-			return enderecos[i];
-		}
-		else{
-			return null;
+		int i;
+		
+		try{
+			for (i = 0; i < enderecos.length; i++){
+				if(id == enderecos[i].getId()){
+					return enderecos[i];
+				}
+			}
+		}catch(NullPointerException erroNenhumElemento){
+			System.out.println("Nao ha nenhum endereco cadastrado!!");
 		}
 
+		return null;
 	}
 }
