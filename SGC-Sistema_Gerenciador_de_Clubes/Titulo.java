@@ -37,8 +37,8 @@ import java.util.Calendar;
 	}
 
     public static Titulo criar(Endereco enderecos[]){
-    	int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familiar: \n");
-    	int meses = Leitura.lerInt("Quantos meses deseja contratar? \n");
+    	int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familiar: ");
+    	int meses = Leitura.lerInt("Quantos meses deseja contratar? ");
 		Mensalidade[] mensalidades = new Mensalidade[meses];
 		Socio titular = Socio.criar(enderecos);
 		if (tipo == 2){
