@@ -33,20 +33,25 @@ public class Socio{
 		String nome;
 		String cpf;
 		Calendar dataNasc;
-		Endereco endereco;
-		System.out.println("\nDados de Socio: \n");
+		Endereco endereco = null;
+		System.out.printf("\nDADOS DE SOCIO \n");
 		nome=Leitura.lerString("Digite nome: ");
 		cpf=Leitura.lerString("Digite CPF: ");
 		dataNasc=Leitura.lerData("Digite data (dd/mm/aaaa): ");
 		int r = Leitura.lerInt("Ja possui endereco cadastrado?(1 - Sim/2 - Nao): ");
+		
 		if(r == 1){
 			int id_pesquisa = Leitura.lerInt("Digite o ID do endereco: "); //ID que vai ser pesuisada se existe
 			endereco = Endereco.pesquisar(id_pesquisa, ends);
 		}
-		else{
-			endereco = Endereco.criar();
+
+		//Se o enderco for Null, quer dizer que nao posui endereco cadastrado
+		if(endereco==null){
+			System.out.println("Endereco nao cadastrado!!");
+			ends[Utilitario.ENDERECO_ID-1] = Endereco.criar();
+			endereco = ends[Utilitario.ENDERECO_ID-1];
 		}
-		
+
 		Socio socios = new Socio(nome,cpf,dataNasc,endereco);
 		return socios;
 
