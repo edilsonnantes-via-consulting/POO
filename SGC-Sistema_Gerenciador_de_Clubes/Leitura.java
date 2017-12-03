@@ -23,7 +23,7 @@ public class Leitura{
 		try{
 			valor = Integer.parseInt(lerString(label));
 		}catch(Exception erro){
-			System.out.println("Valor digitado invalido,tente novamente");
+			System.out.print("Valor invalido, digite numero inteiro: ");
 			lerInt();
 		}
 		return valor;
@@ -33,7 +33,7 @@ public class Leitura{
 		try{
 			return Float.parseFloat(lerString(label));
 		}catch(Exception erro){
-			System.out.println("Valor digitado invalido, tente novamente");
+			System.out.print("Valor invalido, digite numero decimal: ");
 			lerFloat("");
 		}
 
