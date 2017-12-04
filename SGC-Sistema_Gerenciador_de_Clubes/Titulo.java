@@ -37,14 +37,13 @@ import java.util.Calendar;
 	}
 
     public static Titulo criar(Endereco enderecos[]){
-		int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familiar: ");
-
 		Socio titular = Socio.criar(enderecos);
 		Mensalidade[] mensalidades = new Mensalidade[12];
-		
+
+		int tipo = Leitura.lerInt("\nTipo: 1 - Individual / 2 - Familiar: ");
 		switch(tipo){
 			case 1:
-				return Individual.criar(titular, mensalidades);
+				return new Individual(titular, mensalidades);
 			case 2:
 				return Familiar.criar(titular,enderecos,mensalidades);
 			default:
@@ -83,7 +82,7 @@ import java.util.Calendar;
 	
 	public boolean pagarMensalidade(int mes){
     	if(mes>0 && mes<13){ 
-				this.mensalidades[mes].setDataPagamento();
+				this.mensalidades[mes-1].setDataPagamento();
 				return true;
         }else{
 				System.out.printf("Data invalida");

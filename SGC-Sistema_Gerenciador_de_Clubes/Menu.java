@@ -18,7 +18,8 @@ public class Menu
             System.out.printf("\t\t|\t<3> Matricular Socio              |\n");
             System.out.printf("\t\t|\t<4> Desmatricular Socio           |\n");
             System.out.printf("\t\t|\t<5> Pagar Mensalidade             |\n");
-            System.out.printf("\t\t|\t<6> Sair                          |\n");
+            System.out.printf("\t\t|\t<6> Imprimir                      |\n");
+            System.out.printf("\t\t|\t<7> Sair                          |\n");
             System.out.printf("\t\t|_________________________________________|\n\n");
 
             opcao = Leitura.lerInt("Qual a opcao escolhida??\n");
@@ -39,28 +40,16 @@ public class Menu
     
                 case 4:
                     desmatricular(soc);
-    
-                case 5:
-                    if(Utilitario.TITULO_ID != 1)
-                    {
-                        Titulo tit_pesquisa = Titulo.pesquisarTitulo(Leitura.lerInt("Qual ID do socio: "), usuario);
-                        if(tit_pesquisa == null)
-                            System.out.printf("ID invalida..\n");
-                        else
-                        {
-                            if(tit_pesquisa.pagarMensalidade(Leitura.lerInt("Digite o mes: ")))
-                                System.out.printf("Pagamento realizado com sucesso..");
-    
-                            else
-                                System.out.printf("Erro no Pagamento..");
-                        }
-                    }
-    
-                    else
-                        System.out.printf("Impossivel pagar..");
-    
                     break;
     
+                case 5:
+                    pagarMensalidade(usuario);
+                    break;
+    
+                case 6:
+                    imprimirSocio(soc);
+                    break;
+
                 default:
                     System.exit(0);
             }
@@ -112,6 +101,37 @@ public class Menu
             
     }
 
+    public static void pagarMensalidade(Titulo usuario[]){
+        if(Utilitario.TITULO_ID != 1)
+        {
+            Titulo tit_pesquisa = Titulo.pesquisarTitulo(Leitura.lerInt("Qual ID do socio: "), usuario);
+            if(tit_pesquisa == null)
+                System.out.printf("ID invalida..\n");
+            else
+            {
+                if(tit_pesquisa.pagarMensalidade(Leitura.lerInt("Digite o mes: ")))
+                    System.out.printf("Pagamento realizado com sucesso..");
 
+                else
+                    System.out.printf("Erro no Pagamento..");
+            }
+        }
 
+        else
+            System.out.printf("Impossivel pagar..");
+    }
+
+    public static void imprimirSocio(Socio soc[]){
+        try{
+            for(int i=0; i<soc.length; i++){
+                if(soc[i]!=null)
+                    System.out.println(soc[i]);
+                else
+                    break;
+            }
+        }catch(Exception erro){
+            System.out.println("Nao foi possivel imprimir!!");
+        }
+        
+    }
 }

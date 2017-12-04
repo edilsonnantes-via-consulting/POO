@@ -24,6 +24,7 @@ public class Modalidade{
 	//sets
 	
 	//modalidadeId não pode ser modificado, por isso não possui set. Ele é definido no criar.
+	
 	public void setNome(String nome){
 		this.nome=nome;
 	}

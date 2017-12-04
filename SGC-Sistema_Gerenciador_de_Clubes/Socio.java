@@ -24,7 +24,10 @@ public class Socio{
 	//Método toString
 	public String toString(){
 		String aux ="";
-		aux += "Nome: " + this.nome;
+		aux += "\nID.............: " + this.socioId;
+		aux += "\nNome...........: " + this.nome;
+		aux += "\nCPF............: " + this.cpf;
+		aux += "\nEndereco.......: " + this.nome;
 		return aux;
 	}
 
