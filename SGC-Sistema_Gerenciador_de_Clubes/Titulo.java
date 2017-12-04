@@ -43,6 +43,7 @@ import java.util.Calendar;
 		return mensalidades;
 	}
 
+	//Nao consegui implementar o metodo criar do titulo
     public static Titulo criar(Endereco enderecos[]){
 		Socio titular = Socio.criar(enderecos);
 		Mensalidade[] mensalidades = new Mensalidade[12];
@@ -60,6 +61,7 @@ import java.util.Calendar;
 		return null;
     }
 
+	//metodo de pesquisar titulo
     public static Titulo pesquisarTitulo(int id, Titulo[] titulo){
 		int i=0;
 		
