@@ -50,8 +50,7 @@ public class Menu
                     int opcao2=0;
                     System.out.printf("\n<1>Imprimir Enderecos\n");
                     System.out.printf("<2>Imprimir Modalidades\n");
-                    System.out.printf("<3>Imprimir Socios\n");
-                    System.out.printf("<4>Imprimir Titulos\n");
+                    System.out.printf("<3>Imprimir Titulos\n");
                     
                     opcao2 = Leitura.lerInt("Digite opcao desejada: ");
 
@@ -63,9 +62,6 @@ public class Menu
                             imprimirModalidade(mod);
                             break;
                         case 3:
-                            imprimirSocio(soc);
-                            break;
-                        case 4:
                             imprimirTitulo(usuario);
                             break;
                         default:
