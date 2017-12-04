@@ -11,21 +11,28 @@ import java.util.Calendar;
  
  public class Titulo {
 
-    private int tituloid;
+    private int tituloId;
     private Socio titular;
     private Mensalidade mensalidades[];
 
 
-
+	//metodo construtor
     public Titulo(Socio titular, Mensalidade mensalidades[]){
-        this.tituloid = Utilitario.TITULO_ID++;
+        this.tituloId = Utilitario.TITULO_ID++;
         this.titular = titular;
         this.mensalidades = mensalidades;
-    }
+	}
+	
+	//metodo toString
+	public String toString(){
+		String aux ="";
+		aux += "\nTitulo ID......: " + this.tituloId;
+		return aux + titular.toString();
+	}
 
 
-    public int getTituloid(){
-    	return this.tituloid;
+    public int getTituloId(){
+    	return this.tituloId;
     }
 
     public Socio getTitular(){
@@ -53,19 +60,22 @@ import java.util.Calendar;
 		return null;
     }
 
-    public static Titulo pesquisarTitulo(int id, Titulo titulos[]){
-    	int i;
-		for(i = 0; i <= titulos.length; i++){
-    		if(id == titulos[i+1].getTituloid()){
-    			break;
-    		}
-    	}
-		if(id == titulos[i+1].getTituloid()){
-    			return titulos[i+1];
-    		}
-    		else{
-    			return null;
-    		}
+    public static Titulo pesquisarTitulo(int id, Titulo[] titulo){
+		int i=0;
+		
+		try{
+			for(i = 0; i < titulo.length; i++){
+				if(id == titulo[i].getTituloId()){
+					return titulo[i];
+				}
+			}
+		}catch(NullPointerException erroNenhumElemento){
+			System.out.println("Nao ha socio cadastrado");
+		}catch(Exception erro){
+			System.out.println("Ocorreu um erro inesperado");
+		}
+		
+		return null;
 	}
 
 	public Mensalidade calcularMensalidade(Socio soci[]){

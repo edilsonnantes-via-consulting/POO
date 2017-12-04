@@ -27,7 +27,10 @@ public class Socio{
 		aux += "\nID.............: " + this.socioId;
 		aux += "\nNome...........: " + this.nome;
 		aux += "\nCPF............: " + this.cpf;
-		aux += "\nEndereco.......: " + this.nome;
+		//aux += "\nEndereco ID....: " + this.endereco.getEnderecoId();
+		aux += "\nDt. Nascimento.: " + this.dataNasc.get(Calendar.DAY_OF_MONTH);
+		aux += "/" + this.dataNasc.get(Calendar.MONTH);
+		aux += "/" + this.dataNasc.get(Calendar.YEAR);
 		return aux;
 	}
 

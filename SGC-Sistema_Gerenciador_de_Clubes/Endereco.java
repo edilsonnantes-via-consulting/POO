@@ -36,7 +36,8 @@ public class Endereco{
 
 	public String toString(){
 		String aux = "";
-		aux += this.rua;
+		aux += "ID " + this.enderecoId;
+		aux += "-" + this.rua;
 		aux += ", " + this.numero;
 		aux += ", " + this.cidade;
 		aux += ", " + this.estado;

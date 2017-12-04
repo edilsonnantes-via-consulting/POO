@@ -47,11 +47,37 @@ public class Menu
                     break;
     
                 case 6:
-                    imprimirSocio(soc);
+                    int opcao2=0;
+                    System.out.printf("\n<1>Imprimir Enderecos\n");
+                    System.out.printf("<2>Imprimir Modalidades\n");
+                    System.out.printf("<3>Imprimir Socios\n");
+                    System.out.printf("<4>Imprimir Titulos\n");
+                    
+                    opcao2 = Leitura.lerInt("Digite opcao desejada: ");
+
+                    switch(opcao2){
+                        case 1:
+                            imprimirEndereco(end);
+                            break;
+                        case 2:
+                            imprimirModalidade(mod);
+                            break;
+                        case 3:
+                            imprimirSocio(soc);
+                            break;
+                        case 4:
+                            imprimirTitulo(usuario);
+                            break;
+                        default:
+                            System.out.println("Opcao invalida");
+                    }
+
                     break;
 
-                default:
+                case 7:
                     System.exit(0);
+                default:
+                    System.out.println("Opcao invalida");
             }
          }
     }
@@ -132,6 +158,45 @@ public class Menu
         }catch(Exception erro){
             System.out.println("Nao foi possivel imprimir!!");
         }
-        
     }
+
+    public static void imprimirEndereco(Endereco end[]){
+        try{
+            for(int i=0; i<end.length; i++){
+                if(end[i]!=null)
+                    System.out.println(end[i]);
+                else
+                    break;
+            }
+        }catch(Exception erro){
+            System.out.println("Nao foi possivel imprimir!!");
+        }
+    }
+
+    public static void imprimirModalidade(Modalidade modalidades[]){
+        try{
+            for(int i=0; i<modalidades.length; i++){
+                if(modalidades[i]!=null)
+                    System.out.println(modalidades[i]);
+                else
+                    break;
+            }
+        }catch(Exception erro){
+            System.out.println("Nao foi possivel imprimir!!");
+        }
+    }
+
+    public static void imprimirTitulo(Titulo usuario[]){
+        try{
+            for(int i=0; i<usuario.length; i++){
+                if(usuario[i]!=null)
+                    System.out.println(usuario[i]);
+                else
+                    break;
+            }
+        }catch(Exception erro){
+            System.out.println("Nao foi possivel imprimir!!");
+        }
+    }
+
 }
